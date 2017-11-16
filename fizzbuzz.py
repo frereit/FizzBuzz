@@ -1,16 +1,14 @@
-def is_mod(base, divisor, result):
-    if (base % divisor) == 0:
-        return result
-    return ""
+def get_string(dict, base):
+    string = ""
+    for key, value in dict.items():
+        if (base % key) == 0:
+            string += value
+    return string
 
 
 for i in range(0, 130):
-    output = ""
-
-    output += is_mod(i, 3, "Fizz")
-    output += is_mod(i, 5, "Buzz")
-    output += is_mod(i, 8, "Fuzz")
-
+    words = {3: "Fizz", 5: "Buzz", 8: "Fuzz"}
+    output = get_string(words, i)
     if output == "":
         output = str(i)
     print(output)
